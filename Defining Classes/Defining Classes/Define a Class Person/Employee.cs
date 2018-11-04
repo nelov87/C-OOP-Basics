@@ -87,13 +87,7 @@ namespace DefiningClasses
 
         
 
-        public Employee(string name, decimal salary, string position, string department)
-        {
-            Name = name;
-            Salary = salary;
-            Position = position;
-            Department = department;
-        }
+        
 
         public Employee(string name, decimal salary, string position, string department, string email, int age)
         {
@@ -104,6 +98,18 @@ namespace DefiningClasses
             Email = email;
             Age = age;
 
+        }
+
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            builder.Append($"{this.Name} ");
+            builder.Append($"{this.Salary:F2} ");
+            builder.Append($"{(this.Email == null ? "n/a" : this.Email)} ");
+            builder.Append($"{(this.Age == null ? -1 : this.Age)}");
+
+            return builder.ToString();
         }
 
     }
